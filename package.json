@@ -8,13 +8,12 @@
     "chai-as-promised": "^7.1.1",
     "chai-bignumber": "^2.0.2",
     "got": "^8.3.0",
-    "zeppelin-solidity": "1.8.0"
+    "openzeppelin-solidity": "1.8.0"
   },
   "scripts": {
     "dev": "truffle develop",
     "test": "truffle test",
-    "docs:mythril":
-      "truffle compile && myth --truffle -o markdown > ./mythril.md",
+    "docs:mythril": "truffle compile && myth --truffle -o markdown > ./mythril.md",
     "docs:solgraph": "./scripts/solgraph/generate.sh"
   }
 }

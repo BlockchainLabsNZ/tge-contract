@@ -2,9 +2,9 @@ pragma solidity ^0.4.18;
 
 import "./OMIToken.sol";
 import "./OMITokenLock.sol";
-import "../node_modules/zeppelin-solidity/contracts/math/SafeMath.sol";
-import "../node_modules/zeppelin-solidity/contracts/crowdsale/validation/WhitelistedCrowdsale.sol";
-import "../node_modules/zeppelin-solidity/contracts/lifecycle/Pausable.sol";
+import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "../node_modules/openzeppelin-solidity/contracts/crowdsale/validation/WhitelistedCrowdsale.sol";
+import "../node_modules/openzeppelin-solidity/contracts/lifecycle/Pausable.sol";
 
 /// @title OMICrowdsale
 /// @author Mikel Duffy - <mikel@ecomi.com>

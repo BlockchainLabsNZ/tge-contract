@@ -1,9 +1,9 @@
 pragma solidity ^0.4.18;
 
 import "./OMIToken.sol";
-import "../node_modules/zeppelin-solidity/contracts/ownership/Ownable.sol";
-import "../node_modules/zeppelin-solidity/contracts/math/SafeMath.sol";
-import "../node_modules/zeppelin-solidity/contracts/lifecycle/Pausable.sol";
+import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
+import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "../node_modules/openzeppelin-solidity/contracts/lifecycle/Pausable.sol";
 
 /// @title OMITokenLock
 /// @author Mikel Duffy - <mikel@ecomi.com>
