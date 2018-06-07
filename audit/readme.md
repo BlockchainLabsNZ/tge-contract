@@ -41,58 +41,109 @@ No original OpenZeppelin Solidity framework contracts were changed.
 
 ## Checklist
 
-### Gas Optimization
-* [ ] Using string in struct costs more gas than bytes32. [example](https://github.com/BlockchainLabsNZ/mothership-sen/issues/3)
-* [ ] Avoid checking if a uint is greater than 0 [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/6)
-* [ ] Don't assign a variable which is about to be returned [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/5)
-* [ ] Avoid assigning global variables to a local variable. [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/2)
-* [ ] uint256 can be used instead of uint8 to save gas. [example](https://github.com/BlockchainLabsNZ/bankorus_contracts_audit/issues/2) and the [reason](https://ethereum.stackexchange.com/questions/3067/why-does-uint8-cost-more-gas-than-uint256)
-
-
-### Best Practices
-* [ ] Have all declared variables/modifiers/functions/events/files been used? [example_1](https://github.com/BlockchainLabsNZ/zipper-contracts/issues/4), [example_2](https://github.com/BlockchainLabsNZ/gifto-contracts/issues/13)
-* [ ] Prefer explicit declaration of variable types. [example_1](https://github.com/BlockchainLabsNZ/staking-contracts-audit/issues/3), [example_2](https://github.com/BlockchainLabsNZ/gifto-contracts/issues/9)
-* [ ] Prefer explicit declaration of variables access modifiers. [example](https://github.com/BlockchainLabsNZ/gifto-contracts/issues/8)
-* [ ] Always use latest stable version of the compiler. [example](https://github.com/BlockchainLabsNZ/staking-contracts-audit/issues/1)
-* [ ] Dead code should be removed. [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/7)
-* [ ] Consistent naming convention (normally CamelCase). [example_1](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/4), [example_2](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/3)
-* [ ] Avoid magic numbers. [example](https://github.com/BlockchainLabsNZ/bluzelle-contracts/issues/3)
-* [ ] Comments needs should be up to date and reflect code logic. [example](https://github.com/BlockchainLabsNZ/gifto-contracts/issues/11)
-* [ ] Prefer require over revert [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/13)
-* [ ] Token delivery should be decentralized, an owner should not have to "push" them to the investor [example](https://github.com/BlockchainLabsNZ/gifto-contracts/issues/12)
-* [ ] Use only english in comments [example](https://github.com/BlockchainLabsNZ/LAToken-Contracts-Audit/issues/25)
-* [ ] Recommend using braces for single line if/for statement. [example](https://github.com/BlockchainLabsNZ/etheal-contracts/issues/5). [discussion](https://stackoverflow.com/questions/2125066/is-it-bad-practice-to-use-an-if-statement-without-brackets)
-* [ ] Improve code readability by making use of solidity time uints. [example](https://github.com/BlockchainLabsNZ/leverj-contracts/issues/8)
-* [ ] If you are implementing from an interface then it should be declared. [example](https://github.com/BlockchainLabsNZ/poa-popa/issues/2)
-* [ ] Repeated safety checks can be replaced by modifier. [example](https://github.com/BlockchainLabsNZ/poa-popa/issues/1)
-* [ ] A function should return a result if it's declaration says that it's going to. [example](https://github.com/BlockchainLabsNZ/LINA-TokenERC20/issues/1)
-* [ ] Public variables and functions should have different names to avoid duplicates. [example](https://github.com/BlockchainLabsNZ/LINA-TokenERC20/issues/2)
-
-
-### Code Correctness
-* [ ] Token state changes should log an event e.g transfer/mint/burn/change owner, etc [example_1](https://github.com/BlockchainLabsNZ/zipper-contracts/issues/1), [example_2](https://github.com/BlockchainLabsNZ/staking-contracts-audit/issues/2)
-* [ ] Contract fully implements the ERC20 standard. [Standard definition](https://theethereum.wiki/w/index.php/ERC20_Token_Standard)
-* [ ] Convention is to use capital letters for the token "symbol". [example](https://github.com/BlockchainLabsNZ/gifto-contracts/issues/6)
-* [ ] The declaration of pragma version should be at the top of the file, before any imports happen. [example](https://github.com/BlockchainLabsNZ/staking-contracts-audit/issues/1)
-* [ ] Enforce the use of specific Solidity compiler version. [example_1](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/10), [example_2](https://github.com/BlockchainLabsNZ/leverj-contracts/issues/5)
-* [ ] Safemath should be used [example](https://github.com/BlockchainLabsNZ/leverj-contracts/issues/4)
-* [ ] Use .transfer instead of .send. [example](https://github.com/BlockchainLabsNZ/gifto-contracts/issues/10)
-* [ ] Functions should throw an error instead of returning false. [example](https://github.com/BlockchainLabsNZ/mobilego-contracts-audit/issues/1)
-* [ ] Measure time milestones with timestamps, not block height. [example](https://github.com/BlockchainLabsNZ/leverj-contracts/issues/6)
-* [ ] Favour require() over if( throw; ) statements. [example](https://github.com/BlockchainLabsNZ/mothership-sen/issues/1)
-
-### Known Security Weaknesses
-* [ ] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/)
-* [ ] Re-entrancy attacks [example](https://medium.com/@gus_tavo_guim/reentrancy-attack-on-smart-contracts-how-to-identify-the-exploitable-and-an-example-of-an-attack-4470a2d8dfe4)
-* [ ] DoS with reverts [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert)
-* [ ] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit)
 
 ### Documentation
-* [ ] Whitepaper/high level overview
-* [ ] Business logic described
-* [ ] Code is well documented, comments are relevant
-* [ ] Meaningful variables and function names
 
+ - [ ] Whitepaper, presentations, high level overview
+ - [ ] Business logic workflow is described
+ - [ ] Variables and constants are described
+ - [x] Code is well documented, comments are helpful and reflect code logic
+ - [x] Meaningful variables and functions names
+ - [ ] No typos in documentation/comments
+
+
+### Logic
+
+ - [ ] Contract-driven token distribution (no dependency on external actors)
+ - [ ] No Front-end dependencies (distribution scripts, running nodes, bridges, ... )
+ - [x] No upgradeable contracts
+ - [x] No Oracles
+
+
+### Code simplicity
+
+ - [x] No custom approaches in business logic implementation
+ - [x] No Assembly calls
+ - [x] No Internal call with user content (such as bytes32 parameters)
+ - [x] Insignificant number of internal calls, cross-links and other self-dependencies
+ - [x] Low overall code complexity (non-expert developers can understand)
+
+
+
+### Code correctness
+
+ - [x] Adherence to adopted standards such as ERC20
+ - [ ] Latest version of pragma
+ - [ ] Latest syntax (constructors, emit, ... )
+ - [x] Common and well tested libraries and frameworks are used (e.g. Open Zeppelin)  
+ - [x] Variable types declared explicitly (uint256 vs uint)
+ - [x] Access modifiers declared explicitly
+ - [x] Consistent naming convention (CamelCase/pascalCase, underscores, ...) 
+ - [ ] No magic numbers (variables defined with any "obvious" numbers without explanation) – [example](https://github.com/BlockchainLabsNZ/bluzelle-contracts/issues/3)
+ - [ ] Solidity variables are used (`1 year` vs `365*24*60*60`) – [list](https://solidity.readthedocs.io/en/v0.4.24/units-and-global-variables.html)
+ - [x] Functions explicitly returns boolean if it was declared
+ - [x] Tight struct packing
+ - [ ] Fallbacks function logging events
+ - [ ] Latest(ish) (of stable) version of 
+	 - [ ] Solidity compiler
+	 - [x] Frameworks
+	 - [ ] Development/testing environment
+
+
+
+### Gas Optimization
+
+ - [x] No string used in structs (which is more expensive than bytes32) – [example](https://github.com/BlockchainLabsNZ/mothership-sen/issues/3)
+ - [ ] No variables assigned when it's possible to avoid without losing the meaning – [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/2) **– didn't check this yet**
+ - [x] No uint8/16/32/... used, only uint256 – [gas saving reason](https://ethereum.stackexchange.com/questions/3067/why-does-uint8-cost-more-gas-than-uint256)
+ - [x] No dead code found. All declared variables/modifiers/functions/events/files have been used
+
+
+
+### Other Best Practices
+
+ - [x] The pragma version declaration is on the top of the code
+ - [ ] Solidity compiler has strict version (not a range) [example_1](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/10), [example_2](https://github.com/BlockchainLabsNZ/leverj-contracts/issues/5)
+ - [x] Safemath is used (if  [example](https://github.com/BlockchainLabsNZ/leverj-contracts/issues/4)
+ - [x] Require over revert/throw – [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/13)
+ - [x] English comments only
+ - [x] Single line if/for statements are wrapped with curly braces – [discussion](https://stackoverflow.com/questions/2125066/is-it-bad-practice-to-use-an-if-statement-without-brackets)
+ - [x] Contracts are explicit about interface they implement (if any) – [example](https://github.com/BlockchainLabsNZ/poa-popa/issues/2)
+ - [x] No repeated code
+ - [x] Names of public variables and functions help to differentiate them (to avoid misunderstanding on Etherscan) – [example](https://github.com/BlockchainLabsNZ/LINA-TokenERC20/issues/2)
+ - [x] Token state changes emit log events (e.g transfer/mint/burn/change owner, etc)
+ - [x] Contract fully implements the ERC20 standard. [Standard definition](https://theethereum.wiki/w/index.php/ERC20_Token_Standard)
+ - [x] Token symbol consist of capital letters only
+ - [x] No `.send` instructions (only `.transfer`, if any)
+ - [x] No just `return false` instructions, there is an appropriate error handling or throwing errors at least
+
+
+
+### Testability
+
+ - [ ] Test coverage across all functions and events **– didn't check this yet**
+ - [ ] Test cases for both expected behaviour and failure modes **– didn't check this yet**
+ - [ ] Settings for easy testing of a range of parameters **– didn't check this yet**
+ - [ ] No reliance on nested callback functions or console logs **– didn't check this yet**
+ - [ ] No test scenarios calling other test scenarios **– didn't check this yet**
+
+
+  
+### Known Security Weaknesses
+
+ - [ ] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/) **– didn't check this yet**
+ - [ ] Re-entrancy attacks [example](https://medium.com/@gus_tavo_guim/reentrancy-attack-on-smart-contracts-how-to-identify-the-exploitable-and-an-example-of-an-attack-4470a2d8dfe4) **– didn't check this yet**
+ - [ ] DoS with (unexpected)reverts [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert) **– didn't check this yet**
+ - [ ] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit) **– didn't check this yet**
+ - [ ] Honey pots **– didn't check this yet**
+ - [ ] proxyOverflow **– didn't check this yet**
+ - [ ] Transaction-Ordering Dependence (TOD) / Front Running **– didn't check this yet**
+ - [ ] Timestamp Dependence **– didn't check this yet**
+ - [ ] Forcibly Sending Ether to a Contract **– didn't check this yet**
+ - [ ] Race conditions **– didn't check this yet**
+	- [ ] Re-entrancy **– didn't check this yet**
+	- [ ] Cross-function race condition **– didn't check this yet**
+	- [ ] Race conditions bad solutions **– didn't check this yet**
 
 
 
@@ -121,59 +172,77 @@ No original OpenZeppelin Solidity framework contracts were changed.
 </tr>
 </table>
 
+<br>
+
 ### Minor
-- **Dead code should be removed** `best practice` <br>
-There are some dead code should be removed. <br>
-XonioToken.sol, Line 18-19:
-  ```
-  //uint256 public constant INITIAL_SUPPLY = 1000000 * (10 ** uint256(decimals));
-  //uint256 public constant INITIAL_SUPPLY = 0;
-  ```
-  And line 25-26:
-  ```
-  //balances[msg.sender] = INITIAL_SUPPLY;
-  //emit Transfer(0x0, msg.sender, INITIAL_SUPPLY);
-  ```
-  [View on GitHub](https://github.com/BlockchainLabsNZ/xonio-contracts-audit/issues/2)
+- **Contract defining variables are not defined by default** `best practice`
+<br>There is no check that `tokenAllowance`, `allowanceProvider`, `crowdsale` are valid.
+<br>Consider to add them to the contract constructor. 
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
 
-- **Crowdsale only lasts 5 minutes but comment says 30 days** `bug` ` correctness` <br>
-XonioCrowdsale.sol line 26. It says the crowdsale will only last 5 minutes.
-  ```
-  TimedCrowdsale(now, now + 5 minutes)
-  ```
-  This should be a mistake or testing setting cause at the line 10 it says will run for 30 days. <br>
-Just a remindar to change it to the correct value before deployment to the Ethereum.
-[View on GitHub](https://github.com/BlockchainLabsNZ/xonio-contracts-audit/issues/1)
+- **Multiple reverting** `correctness`
+<br>If require(_release(_beneficiary)) fails by some reason, allreleaseAll()` function will fail.
+Probably, it could be better to log failed release and continue the loop.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2)
 
+- **Old Solidity version** `best practice`
+<br>The current Solidity release version is 0.4.24. The project is using 0.4.18, which lacks some of the useful features of latest releases, such as constructors, reverting reasons and emitting events.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/3)
 
-- **Explicitly declare your variables access modifiers** `best practice` <br>
-You should explicitly declare public on the variables that are meant to be public. If not, it can cause unexpected behaviour. And to do this can help to avoid errors.
-  ```
-  XonioToken mToken;
-  ```
-  [View on GitHub](https://github.com/BlockchainLabsNZ/xonio-contracts-audit/issues/3)
+- **Zeppelin Solidity framework was renamed** `testability`
+<br>Repository "zeppelin-solidity" was renamed to the "openzeppelin-solidity" in May, 2018.
+If One uses yarn to install dependencies, the changes in the contracts "import" statements are required, since yarn distinguish these repos and import paths from the contract won't be found.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/4)
 
-- **SafeMath.sol is excluded in the repo** `bug` <br>
-Several files import SafeMath.sol, but this library is not included in the repo. <br>
-[View on GitHub](https://github.com/BlockchainLabsNZ/xonio-contracts-audit/issues/4)
+- **Unnecessary limits checking** `correctness`
+<br>```
+  for (uint256 i = 0; i < lock.locks.length; i = i.add(1)) {
+     ...
+```     
+There is no necessity to use SafeMath.sol lab in this case since there is limits check already presented: `... ; i < ....;`
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/5)
 
-- **Enforce the use of solc 0.4.23** `best practice` <br>
-The code is declaring the following `pragma solidity ^0.4.23;`. <br>
-The use of `^` states that any solc compiler greater or equal to `0.4.23` and lower than `0.5.0` can be used to run the code. <br>
-However, there were some discrepancies in the compiled code and the expected behaviour when using `0.4.24`. <br>
-Therefore we recommend using `pragma solidity 0.4.23;` without the `^` and adding `"solc": "0.4.23"` to the dependencies to enforce testing, compiling and deploying with that compiler. <br>
-[View on GitHub](https://github.com/BlockchainLabsNZ/xonio-contracts-audit/issues/5)
+- **require() vs. modifiers** `best practice`
+<br>`require(!isFinalized);`
+These lines use approach which is different to the rest of project with `whenNotPaused` and `whenNotFinalized` modifiers in the same contract.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/6)
+
+<br>
+
 ### Moderate
 
-- None found
+- **Any address could be used as Crowdsale or AllowanceProvider addresses** `correctness`
+<br>
 
+	```
+	function setCrowdsaleAddress (address _crowdsale) public onlyOwner returns (bool) {
+   		crowdsale = _crowdsale;
+    	return true;
+  	}
+```
+Consider to validate that crowdsale contract is an actual crowdsale contract, not just an address.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/7)
+
+- **Finalization crowdsale could be incomplete** `correctness`
+<br>The Crowdsale `_finalization()` is an internal function and could be called only that lines 166, 170, 174.
+<br>But, `_updatePurchasingState()` could be called only from `buyToken()` from Crowdsale.sol.
+<br>That means if there are not enough purchases, the developers will be forced to buy their tokens themselves.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
+
+<br>
 ### Major
 
 - None found
 
+<br>
+
 ### Critical
 
-- None found
+- **Token transfer to the wrong account** `best practice`
+<br>The `transferFrom()` sends tokens to the `msg.sender`, which is ok if the internal function `_release()` called from public function `releaseToken()`. 
+<br>But when `_release()` called from the `releaseAll()`, then msg.sender is an owner (not the actual beneficiary) and the token will be transferred to that owner's (contract) account.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
+
 
 
 
