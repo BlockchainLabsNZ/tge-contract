@@ -1,5 +1,16 @@
 # Ecomi Token Sale contracts Audit Report
 
+Prepared by: 
+
+- Alex Tikonoff, [alex.tikonoff@blockchainlabs.nz](alex.tikonoff@blockchainlabs.nz)
+- Matt Lough, [matt.lough@blockchainlabs.nz](alex.tikonoff@blockchainlabs.nz)
+
+Report: 
+
+- June 06, 2018 – date of delivery 
+- June 07, 2018 – last report update
+
+
 ## Preamble
 This audit report was undertaken by **[BlockchainLabs.nz](https://blockchainlabs.nz)** for the purpose of providing feedback to **[Ecomi](https://www.ecomi.com/)**.
 
@@ -47,12 +58,15 @@ No original OpenZeppelin Solidity framework contracts were changed.
  - [ ] Whitepaper, presentations, high level overview
  - [ ] Business logic workflow is described
  - [ ] Variables and constants are described
- - [x] Code is well documented, comments are helpful and reflect code logic
+ - [x] Code is documented well enough, comments are helpful and reflect code logic
+ - [ ] Completely commented code
  - [x] Meaningful variables and functions names
  - [ ] No typos in documentation/comments
 
 
-### Logic
+### Code 
+
+- #### Logic
 
  - [ ] Contract-driven token distribution (no dependency on external actors)
  - [ ] No Front-end dependencies (distribution scripts, running nodes, bridges, ... )
@@ -60,7 +74,7 @@ No original OpenZeppelin Solidity framework contracts were changed.
  - [x] No Oracles
 
 
-### Code simplicity
+- #### Simplicity
 
  - [x] No custom approaches in business logic implementation
  - [x] No Assembly calls
@@ -70,7 +84,7 @@ No original OpenZeppelin Solidity framework contracts were changed.
 
 
 
-### Code correctness
+- #### Correctness
 
  - [x] Adherence to adopted standards such as ERC20
  - [ ] Latest version of pragma
@@ -89,12 +103,21 @@ No original OpenZeppelin Solidity framework contracts were changed.
 	 - [x] Frameworks
 	 - [ ] Development/testing environment
 
+- #### Testability
+*[not audited  yet]*
+
+		 - [ ] Test coverage across all functions and events
+		 - [ ] Test cases for both expected behaviour and failure modes
+		 - [ ] Settings for easy testing of a range of parameters
+		 - [ ] No reliance on nested callback functions or console logs
+		 - [ ] No test scenarios calling other test scenarios
+
 
 
 ### Gas Optimization
 
  - [x] No string used in structs (which is more expensive than bytes32) – [example](https://github.com/BlockchainLabsNZ/mothership-sen/issues/3)
- - [ ] No variables assigned when it's possible to avoid without losing the meaning – [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/2) **– didn't check this yet**
+ - [ ] No variables assigned when it's possible to avoid without losing the meaning – [example](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/2) *[not audited  yet]*
  - [x] No uint8/16/32/... used, only uint256 – [gas saving reason](https://ethereum.stackexchange.com/questions/3067/why-does-uint8-cost-more-gas-than-uint256)
  - [x] No dead code found. All declared variables/modifiers/functions/events/files have been used
 
@@ -119,31 +142,24 @@ No original OpenZeppelin Solidity framework contracts were changed.
 
 
 
-### Testability
-
- - [ ] Test coverage across all functions and events **– didn't check this yet**
- - [ ] Test cases for both expected behaviour and failure modes **– didn't check this yet**
- - [ ] Settings for easy testing of a range of parameters **– didn't check this yet**
- - [ ] No reliance on nested callback functions or console logs **– didn't check this yet**
- - [ ] No test scenarios calling other test scenarios **– didn't check this yet**
-
 
   
-### Known Security Weaknesses
+### Known Security Weaknesses 
+*[not audited  yet]*
 
- - [ ] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/) **– didn't check this yet**
- - [ ] Re-entrancy attacks [example](https://medium.com/@gus_tavo_guim/reentrancy-attack-on-smart-contracts-how-to-identify-the-exploitable-and-an-example-of-an-attack-4470a2d8dfe4) **– didn't check this yet**
- - [ ] DoS with (unexpected)reverts [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert) **– didn't check this yet**
- - [ ] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit) **– didn't check this yet**
- - [ ] Honey pots **– didn't check this yet**
- - [ ] proxyOverflow **– didn't check this yet**
- - [ ] Transaction-Ordering Dependence (TOD) / Front Running **– didn't check this yet**
- - [ ] Timestamp Dependence **– didn't check this yet**
- - [ ] Forcibly Sending Ether to a Contract **– didn't check this yet**
- - [ ] Race conditions **– didn't check this yet**
-	- [ ] Re-entrancy **– didn't check this yet**
-	- [ ] Cross-function race condition **– didn't check this yet**
-	- [ ] Race conditions bad solutions **– didn't check this yet**
+	 - [ ] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/) 
+	 - [ ] Re-entrancy attacks [example](https://medium.com/@gus_tavo_guim/reentrancy-attack-on-smart-contracts-how-to-identify-the-exploitable-and-an-example-of-an-attack-4470a2d8dfe4)
+	 - [ ] DoS with (unexpected)reverts [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert) 
+	 - [ ] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit) 
+	 - [ ] Honey pots 
+	 - [ ] proxyOverflow
+	 - [ ] Transaction-Ordering Dependence (TOD) / Front Running 
+	 - [ ] Timestamp Dependence
+	 - [ ] Forcibly Sending Ether to a Contract
+	 - [ ] Race conditions 
+		- [ ] Re-entrancy 
+		- [ ] Cross-function race condition
+		- [ ] Race conditions bad solutions
 
 
 
@@ -276,8 +292,13 @@ Nevertheless, WhitelistedCrowdsale.sol contract modifier `isWhitelisted` was use
 <br><!-- *********************************************** -->
 
 ## Conclusion
-Overall we have not identified any potential vulnerabilities and satisfied that this Smart Contract does not exhibit any known security vulnerabilities. This contract has a low level risk of XXX02 being hacked or stolen.  
+<!--Overall we have not identified any potential vulnerabilities and satisfied that this Smart Contract does not exhibit any known security vulnerabilities. This contract has a low level risk of XXX02 being hacked or stolen.  -->
 
+TBD
+
+
+
+<br>
 ___
 
 ### Disclaimer
