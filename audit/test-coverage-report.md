@@ -1,4 +1,8 @@
-# Ecomi Crowdsale contracts test coverage report
+# Test coverage report
+
+of Ecomi Crowdsale contracts
+
+-
 
 Prepared by: 
 
@@ -10,6 +14,19 @@ Report:
 - June 07, 2018 – date of delivery 
 - June 07, 2018 – last report update
 
+
+<br>
+
+## Testing setup
+
+1. Download, install and run docker.
+2. Run terminal, cd to you project.
+3. Run: `docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/test-coverage`
+4. Interactive testing environment to play with: `docker run --rm -a STDOUT -v $(pwd)/contracts:/audit/contracts -v $(pwd)/test:/audit/test nzblabs/test-play`. Nano and Vim are installed.
+
+<br>
+
+## Testing results
 
 ```
   Contract: OMICrowsdale
