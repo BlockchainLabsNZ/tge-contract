@@ -68,40 +68,40 @@ No original OpenZeppelin Solidity framework contracts were changed.
 
 - #### Logic
 
- - [ ] Contract-driven token distribution (no dependency on external actors)
- - [ ] No Front-end dependencies (distribution scripts, running nodes, bridges, ... )
- - [x] No upgradeable contracts
- - [x] No Oracles
+	- [ ] Contract-driven token distribution (no dependency on external actors)
+	- [ ] No Front-end dependencies (distribution scripts, running nodes, bridges, ... )
+	- [x] No upgradeable contracts
+	- [x] No Oracles
 
 
 - #### Simplicity
 
- - [x] No custom approaches in business logic implementation
- - [x] No Assembly calls
- - [x] No Internal call with user content (such as bytes32 parameters)
- - [x] Insignificant number of internal calls, cross-links and other self-dependencies
- - [x] Low overall code complexity (non-expert developers can understand)
+	- [x] No custom approaches in business logic implementation
+	- [x] No Assembly calls
+	- [x] No Internal call with user content (such as bytes32 parameters)
+	- [x] Insignificant number of internal calls, cross-links and other self-dependencies
+	- [x] Low overall code complexity (non-expert developers can understand)
 
 
 
 - #### Correctness
 
- - [x] Adherence to adopted standards such as ERC20
- - [ ] Latest version of pragma
- - [ ] Latest syntax (constructors, emit, ... )
- - [x] Common and well tested libraries and frameworks are used (e.g. Open Zeppelin)  
- - [x] Variable types declared explicitly (uint256 vs uint)
- - [x] Access modifiers declared explicitly
- - [x] Consistent naming convention (CamelCase/pascalCase, underscores, ...) 
- - [ ] No magic numbers (variables defined with any "obvious" numbers without explanation) – [example](https://github.com/BlockchainLabsNZ/bluzelle-contracts/issues/3)
- - [ ] Solidity variables are used (`1 year` vs `365*24*60*60`) – [list](https://solidity.readthedocs.io/en/v0.4.24/units-and-global-variables.html)
- - [x] Functions explicitly returns boolean if it was declared
- - [x] Tight struct packing
- - [ ] Fallbacks function logging events
- - [ ] Latest(ish) (of stable) version of 
-	 - [ ] Solidity compiler
-	 - [x] Frameworks
-	 - [ ] Development/testing environment
+	- [x] Adherence to adopted standards such as ERC20
+	- [ ] Latest version of pragma
+	- [ ] Latest syntax (constructors, emit, ... )
+	- [x] Common and well tested libraries and frameworks are used (e.g. Open Zeppelin)  
+	- [x] Variable types declared explicitly (uint256 vs uint)
+	- [x] Access modifiers declared explicitly
+	- [x] Consistent naming convention (CamelCase/pascalCase, underscores, ...) 
+	- [ ] No magic numbers (variables defined with any "obvious" numbers without explanation) – [example](https://github.com/BlockchainLabsNZ/bluzelle-contracts/issues/3)
+	- [ ] Solidity variables are used (`1 year` vs `365*24*60*60`) – [list](https://solidity.readthedocs.io/en/v0.4.24/units-and-global-variables.html)
+	- [x] Functions explicitly returns boolean if it was declared
+	- [x] Tight struct packing
+	- [ ] Fallbacks function logging events
+	- [ ] Latest(ish) (of stable) version of 
+		- [ ] Solidity compiler
+		- [x] Frameworks
+		- [ ] Development/testing environment
 
 - #### Testability
 *[not audited  yet]*
