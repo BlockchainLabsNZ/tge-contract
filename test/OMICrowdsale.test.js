@@ -157,13 +157,15 @@ contract('OMICrowsdale', accounts => {
     })
 
     describe('Whitelist', () => {
+      let isWhitelisted
+
       it('should only allow owner to add accounts', async () => {
         await crowdsale.addToWhitelist(notWhitelisted1, { from: notOwner })
           .should.be.rejected
       })
 
       it('should be able to add accounts', async () => {
-        let isWhitelisted = await crowdsale.whitelist(notWhitelisted1)
+        isWhitelisted = await crowdsale.whitelist(notWhitelisted1)
         isWhitelisted.should.be.false
         await crowdsale.addToWhitelist(notWhitelisted1, { from: owner }).should
           .be.fulfilled
