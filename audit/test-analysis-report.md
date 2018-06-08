@@ -47,7 +47,7 @@ Wrapping parentesis usage is inconsistent.
 
 	```
 	   it('should be able to add accounts', async () => {
->>>     let isWhitelisted = await crowdsale.whitelist(notWhitelisted1)   <<<
+==>   let isWhitelisted = await crowdsale.whitelist(notWhitelisted1)   <==
         isWhitelisted.should.be.false
         await crowdsale.addToWhitelist(notWhitelisted1, { from: owner }).should
           .be.fulfilled
