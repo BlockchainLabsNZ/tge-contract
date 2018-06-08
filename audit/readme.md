@@ -190,7 +190,7 @@ No original OpenZeppelin Solidity framework contracts were changed.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
 
 - **Multiple reverting** `correctness`
-<br>If require(_release(_beneficiary)) fails by some reason, allreleaseAll()` function will fail.
+<br>If `require(_release(_beneficiary))` fails by some reason, `allreleaseAll()` function will fail.
 Probably, it could be better to log failed release and continue the loop.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2)
 
@@ -204,11 +204,7 @@ If One uses yarn to install dependencies, the changes in the contracts "import" 
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/4)
 
 - **Unnecessary limits checking** `correctness`
-<br>```
-  for (uint256 i = 0; i < lock.locks.length; i = i.add(1)) {
-     ...
-```     
-There is no necessity to use SafeMath.sol lab in this case since there is limits check already presented: `... ; i < ....;`
+<br>`for (uint256 i = 0; i < lock.locks.length; i = i.add(1)) {` – There is no necessity to use SafeMath.sol lab in this case since there is limits check already presented when checking `; i < lock.locks.lenght ; `
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/5)
 
 - **require() vs. modifiers** `best practices`
@@ -227,16 +223,14 @@ These lines use approach which is different to the rest of project with `whenNot
 ### Moderate
 
 - **Any address could be used as Crowdsale or AllowanceProvider addresses** `correctness`
-<br>
-
 	```
 	function setCrowdsaleAddress (address _crowdsale) public onlyOwner returns (bool) {
    		crowdsale = _crowdsale;
     	return true;
   	}
-```
-Consider to validate that crowdsale contract is an actual crowdsale contract, not just an address.
-<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/7)
+	```
+	Consider to validate that crowdsale contract is an actual crowdsale contract, not just an address.
+	<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/7)
 
 - **Finalization crowdsale could be incomplete** `correctness`
 <br>The Crowdsale `_finalization()` is an internal function and could be called only that lines 166, 170, 174.
@@ -252,6 +246,7 @@ Consider to validate that crowdsale contract is an actual crowdsale contract, no
 
 
 <br>
+
 ### Major
 
 - None found
