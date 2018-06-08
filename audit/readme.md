@@ -134,14 +134,12 @@ No original OpenZeppelin Solidity framework contracts were changed.
 
   
 ### Known Security Weaknesses 
-*[WIP]*
 
-	 - [ ] Re-entrancy attacks [example](https://medium.com/@gus_tavo_guim/reentrancy-attack-on-smart-contracts-how-to-identify-the-exploitable-and-an-example-of-an-attack-4470a2d8dfe4)
-	 - [ ] DoS with (unexpected)reverts [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert) 
-	 - [ ] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit) 
-	 - [ ] Honey pots 
-	 - [ ] proxyOverflow
+No vulnerabilities found regarding: 
 
+ - [ ] DoS with (unexpected)reverts – [Issue 2](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2) could lead to this attack. [Explanation here](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert) 
+ - [x] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit) 
+ - [x] Honey pots 
  - [x] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/) 
  - [x] Transaction-Ordering Dependence (TOD) / Front Running 
  - [x] Timestamp Dependence
@@ -189,11 +187,6 @@ No original OpenZeppelin Solidity framework contracts were changed.
 <br>Consider to add them to the contract constructor. 
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
 
-- **Multiple reverting** `correctness`
-<br>If `require(_release(_beneficiary))` fails by some reason, `allreleaseAll()` function will fail.
-Probably, it could be better to log failed release and continue the loop.
-<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2)
-
 - **Old Solidity version** `best practices`
 <br>The current Solidity release version is 0.4.24. The project is using 0.4.18, which lacks some of the useful features of latest releases, such as constructors, reverting reasons and emitting events.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/3)
@@ -221,6 +214,11 @@ These lines use approach which is different to the rest of project with `whenNot
 <br>
 
 ### Moderate
+
+- **Multiple reverting** `correctness`
+<br>If `require(_release(_beneficiary))` fails by some reason, `allreleaseAll()` function will fail.
+Probably, it could be better to log failed release and continue the loop.
+<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2)
 
 - **Any address could be used as Crowdsale or AllowanceProvider addresses** `correctness`
 	```
