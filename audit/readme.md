@@ -136,19 +136,20 @@ No original OpenZeppelin Solidity framework contracts were changed.
 ### Known Security Weaknesses 
 *[WIP]*
 
-	 - [ ] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/) 
 	 - [ ] Re-entrancy attacks [example](https://medium.com/@gus_tavo_guim/reentrancy-attack-on-smart-contracts-how-to-identify-the-exploitable-and-an-example-of-an-attack-4470a2d8dfe4)
 	 - [ ] DoS with (unexpected)reverts [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert) 
 	 - [ ] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit) 
 	 - [ ] Honey pots 
 	 - [ ] proxyOverflow
+
+ - [x] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/) 
  - [x] Transaction-Ordering Dependence (TOD) / Front Running 
  - [x] Timestamp Dependence
  - [x] Forcibly Sending Ether to a Contract
- - [ ] Race conditions 
-	- [ ] Re-entrancy 
-	- [ ] Cross-function race condition
-	- [ ] Race conditions bad solutions
+ - [x] Race conditions 
+	- [x] Re-entrancy 
+	- [x] Cross-function race condition
+	- [x] Race conditions bad solutions
 
 
 
