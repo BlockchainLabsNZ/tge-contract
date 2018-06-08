@@ -41,7 +41,7 @@ Report:
    		 await crowdsale.buyTokens(from, { value, from }).should.be.rejected
 	  }
 	```
-Wrapping parentesis usage is inconsistent.
+	Wrapping parentesis usage is inconsistent.
 
 - **shouldFulfillPurchase & shouldRejectPurchase**, lines 40-45
 
@@ -66,7 +66,7 @@ Wrapping parentesis usage is inconsistent.
       })
       
 	```
-Variable declaration should move from `it(..` to the upper scope, to `describe(..`, otherwise test `should be able to add many accounts at once` will fail.
+	Variable declaration should move from `it(..` to the upper scope, to `describe(..`, otherwise test `should be able to add many accounts at once` will fail.
 
 <br>
 
