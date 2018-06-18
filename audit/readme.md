@@ -48,109 +48,6 @@ No original OpenZeppelin Solidity framework contracts were changed.
 
 
 
-<br><!-- *********************************************** -->
-
-## Static analysis
-
-
-### Documentation
-
- - [ ] Whitepaper, presentations, high level overview
- - [ ] Business logic workflow is described
- - [ ] Variables and constants are described
- - [x] Code is documented well enough, comments are helpful and reflect code logic
- - [ ] Completely commented code
- - [x] Meaningful variables and functions names
- - [ ] No typos in documentation/comments
-
-
-### Code 
-
-- #### Logic
-
-	- [ ] Contract-driven token distribution (no dependency on external actors) - *See our observations*
-	- [ ] No Front-end dependencies (distribution scripts, running nodes, bridges, ... ) - *See our observations*
-	- [x] No upgradeable contracts
-	- [x] No Oracles
-
-
-- #### Simplicity
-
-	- [x] No custom approaches in business logic implementation
-	- [x] No Assembly calls
-	- [x] No Internal call with user content (such as bytes32 parameters)
-	- [x] Insignificant number of internal calls, cross-links and other self-dependencies
-	- [x] Low overall code complexity (non-expert developers can understand)
-
-
-- #### Correctness
-
-	- [x] Adherence to adopted standards such as ERC20
-	- [ ] Latest syntax (constructors, emit, ... )
-	- [x] Common and well tested libraries and frameworks are used (e.g. Open Zeppelin)  
-	- [x] Variable types declared explicitly (uint256 vs uint)
-	- [x] Access modifiers declared explicitly
-	- [x] Consistent naming convention (CamelCase/pascalCase, underscores, ...) 
-	- [ ] No magic numbers (variables defined with any "obvious" numbers without explanation) – [???](https://github.com/BlockchainLabsNZ/bluzelle-contracts/issues/3)
-	- [ ] Solidity variables are used (`1 year` vs `365*24*60*60`) – [Github](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/11)
-	- [x] Milestones defined by timestamps, not by blocks
-	- [x] Functions explicitly returns boolean if it was declared
-	- [x] Tight struct packing
-	- [ ] Fallbacks function logging events
-	- Latest(ish) of stable version of 
-		- [ ] Solidity compiler – [Github](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/3)
-		- [x] Frameworks
-		- [ ] Development/testing environment – *information is not available*
-
-
-- #### Other Best Practices
-
-	- [x] The pragma version declaration is on the top of the code
-	- [ ] Solidity compiler has strict version (not a range) [example_1](https://github.com/BlockchainLabsNZ/wings-private-contracts/issues/10), [example_2](https://github.com/BlockchainLabsNZ/leverj-contracts/issues/5)
-	- [x] Safemath is used (if needed)
-	- [x] Require over revert/throw
-	- [x] English comments only
-	- [x] Single line if/for statements are wrapped with curly braces
-	- [x] Contracts are explicit about interface they implement (if any)
-	- [x] No repeated code
-	- [x] Names of public variables and functions help to differentiate them (to avoid misunderstanding on Etherscan)
-	- [x] Token state changes emit log events (e.g transfer/mint/burn/change owner, etc)
-	- [x] Contract fully implements the ERC20 standard.
-	- [x] Token symbol consist of capital letters only
-	- [x] No `.send` instructions (only `.transfer`, if any)
-	- [x] No just `return false` instructions, there is an appropriate error handling or throwing errors at least
-
-
-
-
-### Gas Optimization
-
- - [x] No string used in structs (which is more expensive than bytes32)
- - [ ] No variables assigned when it's possible to avoid without losing the meaning – [Github](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/10)
- - [x] No uint8/16/32/... used, only uint256
- - [x] No dead code found. All declared variables/modifiers/functions/events/files have been used
-
-
-
-  
-### Known Security Weaknesses 
-
-No vulnerabilities found regarding: 
-
- - [ ] DoS with (unexpected)reverts – [Issue 2](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2) could lead to this attack. [Explanation here](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-unexpected-revert) 
- - [x] DoS with Block Gas Limit [example](https://consensys.github.io/smart-contract-best-practices/known_attacks/#dos-with-block-gas-limit) 
- - [x] Honey pots 
- - [x] Integer Overflow or Underflow [example](https://ethereumdev.io/safemath-protect-overflows/) 
- - [x] Transaction-Ordering Dependence (TOD) / Front Running 
- - [x] Timestamp Dependence
- - [x] Forcibly Sending Ether to a Contract
- - [x] Race conditions 
-	- [x] Re-entrancy 
-	- [x] Cross-function race condition
-	- [x] Race conditions bad solutions
-
-
-
 
 <br><!-- *********************************************** -->
 
@@ -291,9 +188,12 @@ Nevertheless, WhitelistedCrowdsale.sol contract modifier `isWhitelisted` was use
 <br><!-- *********************************************** -->
 
 ## Conclusion
-<!--Overall we have not identified any potential vulnerabilities and satisfied that this Smart Contract does not exhibit any known security vulnerabilities. This contract has a low level risk of XXX02 being hacked or stolen.  -->
 
-TBD
+One issue must be fixed before deploying contract. 
+
+Fixing few other issues could help to save gas or avoid annoyance during working with deployed contract.
+
+All other findings are quite minor and doesn't affect results a lot. Still, it is recommended to fix all of them and make contract clean, easy to read and up to date.
 
 
 
