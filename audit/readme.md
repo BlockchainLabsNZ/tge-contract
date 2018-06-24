@@ -87,6 +87,7 @@ No original OpenZeppelin Solidity framework contracts were changed.
 - **Old Solidity version** `best practices`
 <br>The current Solidity release version is 0.4.24. The project is using 0.4.18, which lacks some of the useful features of latest releases, such as constructors, reverting reasons and emitting events.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/3)
+	- [x] Fixed: [d32b56](https://github.com/Ecomi-Ecosystem/tge-contract/commit/d32b56992f196ae6703142bf7d2ace720d83a4d6)
 
 - **Zeppelin Solidity framework was renamed** `testability`
 <br>Repository "zeppelin-solidity" was renamed to the "openzeppelin-solidity" in May, 2018.
@@ -136,7 +137,7 @@ Probably, it could be better to log failed release and continue the loop.
 - **Variables assigned when it's possible to avoid them and thus save the gas** `gas optimisation`
 <br>The variables that used not more than once could be removed in order to save on gas.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/10)
-
+	- [x] Fixed: [21d9fb](https://github.com/Ecomi-Ecosystem/tge-contract/commit/21d9fb626765425d39689228105b2a386381a435)
 
 
 
