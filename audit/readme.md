@@ -97,18 +97,19 @@ If One uses yarn to install dependencies, the changes in the contracts "import" 
 - **Unnecessary limits checking** `correctness`
 <br>`for (uint256 i = 0; i < lock.locks.length; i = i.add(1)) {` – There is no necessity to use SafeMath.sol lab in this case since there is limits check already presented when checking `; i < lock.locks.lenght ; `
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/5)
-
+	- [x] Fixed: [75103c](https://github.com/Ecomi-Ecosystem/tge-contract/commit/75103c29eaa612358ecc5e7bd8c1f94c7cb20a57)
 - **require() vs. modifiers** `best practices`
 <br>`require(!isFinalized);`
 These lines use approach which is different to the rest of project with `whenNotPaused` and `whenNotFinalized` modifiers in the same contract.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/6)
+	- [x] Fixed: [1f3837](https://github.com/Ecomi-Ecosystem/tge-contract/commit/1f3837e113e3669ddf3c0ba5a3ef8a49eccdb722)
 
 - **Solidity variables should be used instead of hardcoded numbers** `best practice`
 <br>`uint day = 86400; tokenLock.lockTokens(_beneficiary, day.mul(7), _tokenAmount);`
 <br> could be changed to
 <br>`tokenLock.lockTokens(_beneficiary, 1 weeks, _tokenAmount);`
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/11)
-
+	- [x] Fixed: [3053fd](https://github.com/Ecomi-Ecosystem/tge-contract/commit/3053fd0f5db40df11a5b9f493ffdbd2778f3f1ec)
 <br>
 
 ### Moderate
@@ -133,11 +134,13 @@ Probably, it could be better to log failed release and continue the loop.
 <br>But, `_updatePurchasingState()` could be called only from `buyToken()` from Crowdsale.sol.
 <br>That means if there are not enough purchases, the developers will be forced to buy their tokens themselves.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
+	- [x] Fixed: [2c1c3](https://github.com/Ecomi-Ecosystem/tge-contract/commit/2c1c3e85bf5e5679a0e2f724db49422723a125ff)
+
 
 - **Variables assigned when it's possible to avoid them and thus save the gas** `gas optimisation`
 <br>The variables that used not more than once could be removed in order to save on gas.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/10)
-	- [x] Fixed: [21d9fb](https://github.com/Ecomi-Ecosystem/tge-contract/commit/21d9fb626765425d39689228105b2a386381a435)
+	- [x] Fixed: [1c2a01](https://github.com/Ecomi-Ecosystem/tge-contract/commit/1c2a01a7ac5385ef1cdefe45262d8b4828a2e82e)
 
 
 
@@ -155,8 +158,7 @@ Probably, it could be better to log failed release and continue the loop.
 <br>The `transferFrom()` sends tokens to the `msg.sender`, which is ok if the internal function `_release()` called from public function `releaseToken()`. 
 <br>But when `_release()` called from the `releaseAll()`, then msg.sender is an owner (not the actual beneficiary) and the token will be transferred to that owner's (contract) account.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
-
-
+	- [x] Fixed: [8393fd](https://github.com/Ecomi-Ecosystem/tge-contract/commit/8393fd5fc5afcdd9139d7e223dcab7574b7675b2)
 
 
 
