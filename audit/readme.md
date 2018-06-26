@@ -192,10 +192,6 @@ Nevertheless, WhitelistedCrowdsale.sol contract modifier `isWhitelisted` was use
 
 ## Conclusion
 
-One issue must be fixed before deploying contract. 
-
-Fixing few other issues could help to save gas or avoid annoyance during working with deployed contract.
-
 All other findings are quite minor and doesn't affect results a lot. Still, it is recommended to fix all of them and make contract clean, easy to read and up to date.
 
 
