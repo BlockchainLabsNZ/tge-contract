@@ -83,6 +83,7 @@ No original OpenZeppelin Solidity framework contracts were changed.
 <br>There is no check that `tokenAllowance`, `allowanceProvider`, `crowdsale` are valid.
 <br>Consider to add them to the contract constructor. 
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
+	- Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
 
 - **Old Solidity version** `best practices`
 <br>The current Solidity release version is 0.4.24. The project is using 0.4.18, which lacks some of the useful features of latest releases, such as constructors, reverting reasons and emitting events.
@@ -93,7 +94,8 @@ No original OpenZeppelin Solidity framework contracts were changed.
 <br>Repository "zeppelin-solidity" was renamed to the "openzeppelin-solidity" in May, 2018.
 If One uses yarn to install dependencies, the changes in the contracts "import" statements are required, since yarn distinguish these repos and import paths from the contract won't be found.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/4)
-
+	- [x] Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
+	
 - **Unnecessary limits checking** `correctness`
 <br>`for (uint256 i = 0; i < lock.locks.length; i = i.add(1)) {` – There is no necessity to use SafeMath.sol lab in this case since there is limits check already presented when checking `; i < lock.locks.lenght ; `
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/5)
@@ -115,9 +117,10 @@ These lines use approach which is different to the rest of project with `whenNot
 ### Moderate
 
 - **Multiple reverting** `correctness`
-<br>If `require(_release(_beneficiary))` fails by some reason, `allreleaseAll()` function will fail.
+<br>If `require(_release(_beneficiary))` fails by some reason, `releaseAll()` function will also fail.
 Probably, it could be better to log failed release and continue the loop.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2)
+	- [x] Fixed. The logic was moved to the web.
 
 - **Any address could be used as Crowdsale or AllowanceProvider addresses** `correctness`
 	```
@@ -128,6 +131,8 @@ Probably, it could be better to log failed release and continue the loop.
 	```
 	Consider to validate that crowdsale contract is an actual crowdsale contract, not just an address.
 	<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/7)
+	- [x] Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
+
 
 - **Finalization crowdsale could be incomplete** `correctness`
 <br>The Crowdsale `_finalization()` is an internal function and could be called only that lines 166, 170, 174.
@@ -158,6 +163,7 @@ Probably, it could be better to log failed release and continue the loop.
 <br>The `transferFrom()` sends tokens to the `msg.sender`, which is ok if the internal function `_release()` called from public function `releaseToken()`. 
 <br>But when `_release()` called from the `releaseAll()`, then msg.sender is an owner (not the actual beneficiary) and the token will be transferred to that owner's (contract) account.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
+
 	- [x] Fixed: [8393fd](https://github.com/Ecomi-Ecosystem/tge-contract/commit/8393fd5fc5afcdd9139d7e223dcab7574b7675b2)
 
 
