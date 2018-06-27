@@ -196,10 +196,6 @@ Nevertheless, WhitelistedCrowdsale.sol contract modifier `isWhitelisted` was use
 
 It is possible to use `emit` and `constructor` keywords, to increase readability but that is up to authors, use them or not.
 
-### Unused function parameters
-
-There are few unused function parameters in the codebase which could increase gas spending, not a critical though.
-
 ### Functions state mutability can be restricted to pure
 
 Few functions can be marked explicitly with `pure` attribute to clarify that they do not change anything on the blockchain.
