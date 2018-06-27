@@ -2,13 +2,13 @@
 
 Prepared by: 
 
-- Alex Tikonoff, [alex.tikonoff@blockchainlabs.nz](alex.tikonoff@blockchainlabs.nz)
-- Matt Lough, [matt.lough@blockchainlabs.nz](alex.tikonoff@blockchainlabs.nz)
+- Alex Tikonoff, [alexf@blockchainlabs.nz](alex@blockchainlabs.nz)
+- Matt Lough, [matt@blockchainlabs.nz](matt@blockchainlabs.nz)
 
 Report: 
 
 - June 06, 2018 – date of delivery 
-- June 07, 2018 – last report update
+- June 27, 2018 – last report update
 
 
 ## Preamble
