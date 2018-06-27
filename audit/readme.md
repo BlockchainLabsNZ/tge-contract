@@ -83,7 +83,7 @@ No original OpenZeppelin Solidity framework contracts were changed.
 <br>There is no check that `tokenAllowance`, `allowanceProvider`, `crowdsale` are valid.
 <br>Consider to add them to the contract constructor. 
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
-	- Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
+	- [x] Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
 
 - **Old Solidity version** `best practices`
 <br>The current Solidity release version is 0.4.24. The project is using 0.4.18, which lacks some of the useful features of latest releases, such as constructors, reverting reasons and emitting events.
@@ -192,6 +192,17 @@ Only whitelisted account allowed to check the token purchases from its own and o
 
 Nevertheless, WhitelistedCrowdsale.sol contract modifier `isWhitelisted` was used, just once and just to restrict purchase history check. 
 
+### Latest Solidity versions benefits are not used
+
+It is possible to use `emit` and `constructor` keywords, to increase readability but that is up to authors, use them or not.
+
+### Unused function parameters
+
+There are few unused function parameters in the codebase which could increase gas spending, not a critical though.
+
+### Functions state mutability can be restricted to pure
+
+Few functions can be marked explicitly with `pure` attribute to clarify that they do not change anything on the blockchain.
 
 
 <br><!-- *********************************************** -->
