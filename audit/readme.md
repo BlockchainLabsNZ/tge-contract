@@ -175,7 +175,7 @@ Probably, it could be better to log failed release and continue the loop.
 
 ### No real token transfers
 
-TockenLock contract doesn't suppose real token transfer during the Sale.
+TockenLock contract does not transfer tokens during the Sale.
 All tokens are virtually deposited to the Lock contract and could be transferred to the customers after 7 days after the Sale is finished. 
 
 The process of sending tokens is possible only when particular AllowanceProvider Contract has that tokens on its balance.
