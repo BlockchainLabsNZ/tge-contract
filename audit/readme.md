@@ -205,8 +205,11 @@ Few functions can be marked explicitly with `pure` attribute to clarify that the
 
 ## Conclusion
 
-All other findings are quite minor and doesn't affect results a lot. Still, it is recommended to fix all of them and make contract clean, easy to read and up to date.
+The developers demonstrated an understanding of Solidity and smart contracts. They were receptive to the feedback provided to help improve the robustness of the contracts.
 
+We took part in carefully reviewing all source code provided
+
+Overall we consider the resulting contracts following the audit feedback period adequate and any potential vulnerabilities have now been fully resolved. These contract has a low level risk of ETH and OMI being hacked or stolen from the inspected contracts.
 
 
 <br>
