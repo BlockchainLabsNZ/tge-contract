@@ -38,9 +38,9 @@ The following contracts were subject for static analysis:
 
 This project is using [openzeppelin-solidity v1.8.0](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v1.8.0), which is not the latest version and lacks some of the useful features of latest Solidity releases, such as constructors, reverting reasons and emitting events.
 
-Repository "zeppelin-solidity" was renamed to the "openzeppelin-solidity" in May, 2018.<br>If One uses `yarn` to install dependencies, the changes in the contracts "import" statements are required, since `yarn` distinguish these repos and import paths from the contract won't be found. 
+Repository "zeppelin-solidity" was renamed to "openzeppelin-solidity" in May, 2018.<br>If y uses `yarn` to install dependencies, the changes in the contracts "import" statements are required, since `yarn` distinguishe these repos and import paths from the contract ton't be found. 
 
-On the contrary, `npm` warn about this situation, but install old "zeppelin-solidity" repository, so no extra actions are required. 
+On the contrary, `npm` warns about this situation, but installs old "zeppelin-solidity" repository, so no extra actions are required. 
 
 No original OpenZeppelin Solidity framework contracts were changed.
 
@@ -81,7 +81,7 @@ No original OpenZeppelin Solidity framework contracts were changed.
 ### Minor
 - **Contract defining variables are not defined by default** `best practices`
 <br>There is no check that `tokenAllowance`, `allowanceProvider`, `crowdsale` are valid.
-<br>Consider to add them to the contract constructor. 
+<br>Consider addi them to the contract constructor. 
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
 	- [x] Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
 
@@ -92,17 +92,17 @@ No original OpenZeppelin Solidity framework contracts were changed.
 
 - **Zeppelin Solidity framework was renamed** `testability`
 <br>Repository "zeppelin-solidity" was renamed to the "openzeppelin-solidity" in May, 2018.
-If One uses yarn to install dependencies, the changes in the contracts "import" statements are required, since yarn distinguish these repos and import paths from the contract won't be found.
+If y uses yarn to install dependencies, the changes in the contracts "import" statements are required, since yarn distinguish these repos and import paths from the contract won't be found.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/4)
 	- [x] Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
 	
 - **Unnecessary limits checking** `correctness`
-<br>`for (uint256 i = 0; i < lock.locks.length; i = i.add(1)) {` – There is no necessity to use SafeMath.sol lab in this case since there is limits check already presented when checking `; i < lock.locks.lenght ; `
+<br>`for (uint256 i = 0; i < lock.locks.length; i = i.add(1)) {` – There is no r to use SafeMath.sol lab in this case since there is limits check already presented when checking `; i < lock.locks.lenght ; `
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/5)
 	- [x] Fixed: [75103c](https://github.com/Ecomi-Ecosystem/tge-contract/commit/75103c29eaa612358ecc5e7bd8c1f94c7cb20a57)
 - **require() vs. modifiers** `best practices`
 <br>`require(!isFinalized);`
-These lines use approach which is different to the rest of project with `whenNotPaused` and `whenNotFinalized` modifiers in the same contract.
+These lines use aapproach which is different to the rest of project with `whenNotPaused` and `whenNotFinalized` modifiers in the same contract.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/6)
 	- [x] Fixed: [1f3837](https://github.com/Ecomi-Ecosystem/tge-contract/commit/1f3837e113e3669ddf3c0ba5a3ef8a49eccdb722)
 
@@ -118,7 +118,7 @@ These lines use approach which is different to the rest of project with `whenNot
 
 - **Multiple reverting** `correctness`
 <br>If `require(_release(_beneficiary))` fails by some reason, `releaseAll()` function will also fail.
-Probably, it could be better to log failed release and continue the loop.
+It could be better to log failed release and continue the loop.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/2)
 	- [x] Fixed. The logic was moved to the web.
 
@@ -129,7 +129,7 @@ Probably, it could be better to log failed release and continue the loop.
     	return true;
   	}
 	```
-	Consider to validate that crowdsale contract is an actual crowdsale contract, not just an address.
+	Consider validati that crowdsale contract is an actual crowdsale contract, not just an address.
 	<br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/7)
 	- [x] Fixed: [81daf7](https://github.com/Ecomi-Ecosystem/tge-contract/commit/81daf727bc584e3dce733e85dce29982e5dddb8c)
 
@@ -143,7 +143,7 @@ Probably, it could be better to log failed release and continue the loop.
 
 
 - **Variables assigned when it's possible to avoid them and thus save the gas** `gas optimisation`
-<br>The variables that used not more than once could be removed in order to save on gas.
+<br>Bariables that used not more than once could be removed in order to save on gas.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/10)
 	- [x] Fixed: [1c2a01](https://github.com/Ecomi-Ecosystem/tge-contract/commit/1c2a01a7ac5385ef1cdefe45262d8b4828a2e82e)
 
@@ -160,8 +160,8 @@ Probably, it could be better to log failed release and continue the loop.
 ### Critical
 
 - **Token transfer to the wrong account** `correctness`
-<br>The `transferFrom()` sends tokens to the `msg.sender`, which is ok if the internal function `_release()` called from public function `releaseToken()`. 
-<br>But when `_release()` called from the `releaseAll()`, then msg.sender is an owner (not the actual beneficiary) and the token will be transferred to that owner's (contract) account.
+<br>The `transferFrom()` fsends tokens to the `msg.sender`, which is ok if the internal function `_release()`  called from public function `releaseToken()`. 
+<br>But when `_release()` icalled from the `releaseAll()`, then msg.sender is an owner (not the actual beneficiary) and the token will be transferred to that owner's (contract) account.
 <br>[View on GitHub](https://github.com/BlockchainLabsNZ/tge-contract-audit/issues/1)
 
 	- [x] Fixed: [8393fd](https://github.com/Ecomi-Ecosystem/tge-contract/commit/8393fd5fc5afcdd9139d7e223dcab7574b7675b2)
@@ -184,13 +184,13 @@ That contract is not under audit, so we can not grant that AllowanceProvider wil
 
 ### Exchange rate updated from outside
 
-The token exchange rate is a subject to external changes and could be set by Contract Owner to any value. We encourage customers to check the rate thoroughly before buying.
+The token exchange rate is a subject to external changes and could be set by tContract Owner to any value. We encourage customers to check the rate thoroughly before buying.
 
 ### WhitelistedCrowdsale.sol
 
-Only whitelisted account allowed to check the token purchases from its own and other accounts, but Ethereum blockchain is transparent to everyone and anyone could check token purchases history for this project. 
+Only whitelisted accounts allowed to check the token purchases from its own and other accounts, but Ethereum blockchain is transparent to everyone and anyone could check token purchases history for this project. 
 
-Nevertheless, WhitelistedCrowdsale.sol contract modifier `isWhitelisted` was used, just once and just to restrict purchase history check. 
+Nevertheless, WhitelistedCrowdsale.sol contract modifier `isWhitelisted` was used, just once and just to restrict purchase histoy check. 
 
 ### Latest Solidity versions benefits are not used
 
@@ -198,7 +198,7 @@ It is possible to use `emit` and `constructor` keywords, to increase readability
 
 ### Functions state mutability can be restricted to pure
 
-Few functions can be marked explicitly with `pure` attribute to clarify that they do not change anything on the blockchain.
+Sfunctions can be marked explicitly with `pure` attribute to clarify that they do not change anything on the blockchain.
 
 
 <br><!-- *********************************************** -->
